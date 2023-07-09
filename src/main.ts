@@ -1,22 +1,28 @@
 import createState from 'state-watcher';
 
 const [state, watcher] = createState({
-  cards: [],
+  cards: {},
   next_card: null,
   password_error: null,
 });
 
 const main = async () => {
-  await fetch('/.netlify/functions/get-card')
+  const nextCard = await fetch('/.netlify/functions/get-card')
     .then((d) => {
       if (d.status !== 200) {
         throw new Error('Invalid response');
       }
       return d.json();
     })
-    .catch((err) => {
+    .then((d) => d.data)
+    .catch(() => {
       state.password_error = true;
     });
+
+  if (nextCard) {
+    state.next_card = nextCard;
+    state.password_error = false;
+  }
 
   state.cards = await fetch('/cards.json').then((d) => d.text());
 };
@@ -29,5 +35,7 @@ watcher.on('change', ['password_error'], (_, err) => {
     document.querySelector('password-input').remove();
   }
 });
+
+watcher.on('change', ['next_card'], (state, nextCard) => {});
 
 main();

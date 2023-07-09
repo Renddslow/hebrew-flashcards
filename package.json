@@ -15,8 +15,10 @@
   "dependencies": {
     "cookie": "^0.5.0",
     "jsonwebtoken": "^9.0.0",
+    "klona": "^2.0.6",
     "lit": "^2.7.4",
-    "state-watcher": "^0.6.0"
+    "state-watcher": "^0.6.0",
+    "zod": "^3.21.4"
   },
   "type": "module",
   "prettier": "@dmsi/prettier-config",
