@@ -1,0 +1,11 @@
+[build]
+publish="public/"
+command="yarn build"
+
+[functions]
+directory="functions/"
+
+[[redirects]]
+from = "/api/card"
+to = "/.netlify/functions/get-card"
+status = 200

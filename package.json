@@ -1,0 +1,27 @@
+{
+  "name": "flashcards.mattmcelwee.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Matt McElwee <matt.mcelwee@jointhebibleproject.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@dmsi/prettier-config": "^1.3.0",
+    "@netlify/functions": "^1.6.0",
+    "esbuild": "^0.17.19",
+    "mri": "^1.2.0",
+    "netlify-cli": "^15.1.0",
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "cookie": "^0.5.0",
+    "jsonwebtoken": "^9.0.0",
+    "lit": "^2.7.4",
+    "state-watcher": "^0.6.0"
+  },
+  "type": "module",
+  "prettier": "@dmsi/prettier-config",
+  "scripts": {
+    "build": "node build.js",
+    "start": "netlify dev"
+  }
+}
